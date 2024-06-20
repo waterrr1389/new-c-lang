@@ -100,7 +100,7 @@ void ComputerMove(char board[ROW][COL], int row, int col)
 	{
 		x = rand() % row;
 		y = rand() % col;
-		if (x >= 1 && y >= 1 && x <= row && y <= col)
+		if (x >=0 && y >=0 && x < row && y < col)
 		{
 			if (board[x][y] == ' ')
 			{
@@ -117,9 +117,9 @@ char IsWin(char board[ROW][COL], int row, int col)
 	int count_player = 0;
 	int count_computer = 0;
 	//按行找
-	for (i = 0, count_player = 0, count_computer = 0; i < row - 1; i++)
+	for (i = 0; i < row - 1; i++)
 	{	 
-		for (j = 0; j < col-1; j++)
+		for (j = 0, count_player = 0, count_computer = 0; j < col-1; j++)
 		{
 			if (board[i][j] == '*')
 			{
@@ -148,10 +148,10 @@ char IsWin(char board[ROW][COL], int row, int col)
 		}	
 	}
 	//按列找
-	for (j = 0, count_player = 0, count_computer = 0; j < row - 1; j++)
+	for (j = 0; j < row - 1; j++)
 	{
 
-		for (i = 0; i < col - 1; i++)
+		for (i = 0, count_player = 0, count_computer = 0; i < col - 1; i++)
 		{
 			if (board[i][j] == '*')
 			{
@@ -180,10 +180,10 @@ char IsWin(char board[ROW][COL], int row, int col)
 		}
 	}
 	//斜着找
-	for (i = 0, count_player = 0, count_computer = 0; i < row - 1; i++)
+	for (i = 0; i < row - 1; i++)
 	{
 
-		for (j = 0; j < col - 1; j++)
+		for (j = 0, count_player = 0, count_computer = 0; j < col - 1; j++)
 		{
 			if (board[i][j] == '*')
 			{
