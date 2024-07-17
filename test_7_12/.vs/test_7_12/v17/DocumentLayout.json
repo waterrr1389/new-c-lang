@@ -1,10 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\waterrr\\c lang\\test_7_12\\",
+  "WorkspaceRootPath": "D:\\waterrr\\test\\test_7_12\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\waterrr\\c lang\\test_7_12\\test_7_12\\test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:test_7_12\\test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{6FB80CA4-3A72-483D-ADD8-EE1D8EB45BF9}|test_7_12\\test_7_12.vcxproj|D:\\waterrr\\test\\test_7_12\\test_7_12\\test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6FB80CA4-3A72-483D-ADD8-EE1D8EB45BF9}|test_7_12\\test_7_12.vcxproj|solutionrelative:test_7_12\\test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\waterrr\\c lang\\test_7_12\\test_7_12\\test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -20,14 +23,25 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "test.c",
-              "DocumentMoniker": "D:\\waterrr\\c lang\\test_7_12\\test_7_12\\test.c",
+              "DocumentMoniker": "D:\\waterrr\\test\\test_7_12\\test_7_12\\test.c",
               "RelativeDocumentMoniker": "test_7_12\\test.c",
-              "ToolTip": "D:\\waterrr\\c lang\\test_7_12\\test_7_12\\test.c",
+              "ToolTip": "D:\\waterrr\\test\\test_7_12\\test_7_12\\test.c",
               "RelativeToolTip": "test_7_12\\test.c",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAhAAAA",
+              "ViewState": "AQIAAIcAAAAAAAAAAAAYwIoAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-07-12T07:20:42.194Z",
+              "WhenOpened": "2024-07-17T14:02:19.475Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "test.c",
+              "DocumentMoniker": "D:\\waterrr\\c lang\\test_7_12\\test_7_12\\test.c",
+              "RelativeDocumentMoniker": "..\\..\\c lang\\test_7_12\\test_7_12\\test.c",
+              "ToolTip": "D:\\waterrr\\c lang\\test_7_12\\test_7_12\\test.c",
+              "RelativeToolTip": "..\\..\\c lang\\test_7_12\\test_7_12\\test.c",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-07-12T07:20:42.194Z"
             }
           ]
         }
