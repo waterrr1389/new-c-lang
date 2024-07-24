@@ -13,8 +13,8 @@ int main()
 		printf("*****    1.play    *****\n");
 		printf("*****    0.exit    *****\n");
 		printf("************************\n");
-		scanf("%d", &input);
-		switch (input)
+		//scanf("%d", &input);
+		switch (1)
 		{
 		case 1:
 			game();

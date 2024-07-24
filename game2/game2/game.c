@@ -5,12 +5,14 @@ void game()
 {
 	char mine[ROW][COL] = { 0 };
 	char show[ROW][COL] = { 0 };
+	char is_recursion[ROW][COL] = { 0 };
 	SetBoard(mine,ROW,COL,'0');
 	SetBoard(show, ROW, COL,'*');
+	SetBoard(is_recursion, ROW, COL, '0');
 	SetMine(mine, ROWS, COLS);
 	DisplayBoard(mine, ROW, COL);
 	DisplayBoard(show, ROW, COL);
-	FindMine(mine,show,ROWS,COLS);
+	FindMine(mine,show, is_recursion,ROWS,COLS);
 }
 //设置数组
 void SetBoard(char board[ROW][COL], int row, int col,char target)
@@ -43,7 +45,14 @@ void DisplayBoard(char board[ROW][COL], int row, int col)
 		printf("%d ", i);
 		for (j = 1; j < col-1; j++)
 		{	
-			printf("%c ", board[i][j]);
+			if (board[i][j] != '0')
+			{
+				printf("%c ", board[i][j]);
+			}
+			else
+			{
+				printf("%c ", ' ');
+			}
 		}
 		printf("\n");
 	}
@@ -69,7 +78,7 @@ void SetMine(char board[ROW][COL], int rows, int cols)
 
 
 //找雷
-void FindMine(char mine[ROW][COL], char show[ROW][COL], int rows, int cols)
+void FindMine(char mine[ROW][COL], char show[ROW][COL], char is_recursion[ROW][COL], int rows, int cols)
 {
 	int x = 0;
 	int y = 0;
@@ -94,7 +103,7 @@ void FindMine(char mine[ROW][COL], char show[ROW][COL], int rows, int cols)
 				else
 				{
 					count++;
-					openmine(mine, show, x, y);
+					openmine(mine, show, is_recursion, x, y);
 					DisplayBoard(show, ROW, COL);
 				}
 			}
@@ -111,7 +120,7 @@ void FindMine(char mine[ROW][COL], char show[ROW][COL], int rows, int cols)
 	}
 }
 
-int get_my_count(char mine[ROW][COL], int x, int y)
+int get_mine_count(char mine[ROW][COL], int x, int y)
 {
 	return (mine[x - 1][y - 1] +
 		    mine[x - 1][y + 0] +
@@ -123,47 +132,25 @@ int get_my_count(char mine[ROW][COL], int x, int y)
 		    mine[x + 1][y + 1] - 8 * '0');
 }
 //点击一下自动扩展
-void openmine(char mine[ROW][COL], char show[ROW][COL], int x, int y)
+void openmine(char mine[ROW][COL], char show[ROW][COL], char is_recursion[ROW][COL], int x, int y)
 {
-	if (0 == (show[x][y] = get_my_count(mine, x, y)) )
+	if (x > 0 && x < ROW - 1 && y>0 && y < COL - 1)
 	{
-		show[x][y] = ' ';
-		
-			if ((x - 1) > 0 && (y - 1) > 0 && (show[x - 1][y - 1] == '*'))
-			{
-				openmine(mine, show, x - 1, y - 1);
-			}
-			if ((x - 1) > 0 && y && (show[x - 1][y] == '*'))
-			{
-				openmine(mine, show, x - 1, y);
-			}
-			if ((x - 1) > 0 && (y + 1) <= COL && (show[x - 1][y + 1] == '*'))
-			{
-				openmine(mine, show, x - 1, y + 1);
-			}
-			if ((x) > 0 && (y - 1) > 0 && (show[x][y - 1] == '*'))
-			{
-				openmine(mine, show, x, y - 1);
-			}
-			if ((x) > 0 && (y + 1) <= COL && (show[x][y + 1] == '*'))
-			{
-				openmine(mine, show, x, y + 1);
-			}
-			if ((x + 1) <= ROW && (y - 1) > 0 && (show[x + 1][y - 1] == '*'))
-			{
-				openmine(mine, show, x + 1, y - 1);
-			}
-			if ((x + 1) <= ROW && y && (show[x + 1][y] == '*'))
-			{
-				openmine(mine, show, x + 1, y);
-			}
-			if ((x + 1) <= ROW && (y + 1) <= COL && (show[x + 1][y + 1] == '*'))
-			{
-				openmine(mine, show, x + 1, y + 1);
-			}
-	}
-	else
-	{
-		show[x][y] = get_my_count(mine, x, y) + '0';
+		if (mine[x - 1][y] == '0' && get_mine_count(mine, x, y) == 0 && is_recursion[x][y] == '0')//前一个条件是已验证的
+		{
+			is_recursion[x][y] = '1';
+			openmine(mine, show, is_recursion, x - 1, y - 1);
+			openmine(mine, show, is_recursion, x - 1, y + 0);
+			openmine(mine, show, is_recursion, x - 1, y + 1);
+			openmine(mine, show, is_recursion, x + 0, y - 1);
+			openmine(mine, show, is_recursion, x + 0, y + 1);
+			openmine(mine, show, is_recursion, x + 1, y - 1);
+			openmine(mine, show, is_recursion, x + 1, y + 0);
+			openmine(mine, show, is_recursion, x + 1, y - 1);
+		}
+		else
+		{
+			show[x][y] = get_mine_count(mine, x, y) + '0';
+		}
 	}
 }
