@@ -57,11 +57,11 @@
 #include<stdlib.h>
 
 #include <stdio.h>
-int main()
-{
-	char a = -1;
-	unsigned char b = -1;
-	char c = -1;
-	printf("a=%d,b=%d,c=%u", a, b, c);
-	return 0;
-}
+//int main()
+//{
+//	char a = -1;
+//	unsigned char b = -1;
+//	char c = -1;
+//	printf("a=%d,b=%d,c=%u", a, b, c);
+//	return 0;
+//}
